@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import {Routes,Route,BrowserRouter} from "react-router-dom";
 import './App.css';
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Bye from "./pages/Bye";
+import {UserContext} from "./pages/UserContext";
+import {useState} from "react";
+import UseMem from "./pages/usemem";
+import Reducer from "./pages/useReducer";
+
 
 function App() {
+const [user , setUser] = useState("hello from use State Context")
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <UserContext.Provider value={{user,setUser}}>
+              <BrowserRouter>
+                  <Routes>
+                      <Route path="/" element={<Home/>}/>
+                      <Route path="/about" element={<About/>}/>
+                      <Route path="/bye" element={<Bye/>}/>
+                      <Route path="/mem" element={<UseMem/>}/>
+                      <Route path="/reducer" element={<Reducer/>}/>
+                  </Routes>
+              </BrowserRouter>
+      </UserContext.Provider>
+
   );
 }
 
