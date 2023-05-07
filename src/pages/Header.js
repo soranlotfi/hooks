@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import "./Header.css"
 
 const Header = ()=>{
 
@@ -9,6 +10,7 @@ const Header = ()=>{
             <Link to='/bye'>Bye</Link>
             <Link to='/mem'>memo</Link>
             <Link to='/reducer'>reducer</Link>
+            <Link to='/redCon'>reducer</Link>
         </div>
     )
 }
